@@ -13,7 +13,6 @@ import RxCocoa
 class MovieListVC: BaseCollectionViewController {
     
     let viewModel: MovieListViewModel
-    private let spacing: CGFloat = 10
     
     init() {
         viewModel = MovieListViewModel(bag: DisposeBag())
@@ -27,6 +26,7 @@ class MovieListVC: BaseCollectionViewController {
         setupNavigationBar()
         setupCollectionView()
         observeNetworkEvents()
+        observeCollectionViewEvents()
     }
     
     private func setupCollectionView() {
@@ -47,16 +47,22 @@ class MovieListVC: BaseCollectionViewController {
                 AlertMessage.showBasicAlert(on: self, message: response.message)
             }
         }).disposed(by: viewModel.bag)
-        
+    }
+    
+    private func observeCollectionViewEvents() {
         viewModel.moviesData.bind(to: collectionView.rx.items(cellIdentifier: MovieListCell.cellId, cellType: MovieListCell.self)) { row, model, cell in
             cell.configureCell(with: model)
         }.disposed(by: viewModel.bag)
         
-//        tableView.rx.modelSelected(StatisticsResponse.self).subscribe(onNext: { [weak self] selectedItem in
-//            guard let self = self else { return }
-//            let controller = DetailsVC(statisticData: selectedItem)
-//            self.navigationController?.pushViewController(controller, animated: true)
-//        }).disposed(by: viewModel.bag)
+        collectionView.rx.modelSelected(MovieListData.self).subscribe(onNext: { [weak self] selectedItem in
+            guard let self = self else { return }
+            self.gotoShowTime(data: selectedItem)
+        }).disposed(by: viewModel.bag)
+    }
+    
+    private func gotoShowTime(data: MovieListData) {
+        let controller = ShowTimeVC(movieData: data)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +72,7 @@ class MovieListVC: BaseCollectionViewController {
 
 extension MovieListVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
