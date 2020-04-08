@@ -10,6 +10,9 @@ import UIKit
 
 class BookingView: UIView {
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    
     let bookingCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -42,21 +45,34 @@ class BookingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black
+        setupScrollView()
         setupBookingCollection()
         setupSeatInfoStack()
         setupToolbar()
     }
     
+    private func setupScrollView() {
+        addSubview(scrollView)
+        scrollView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+        
+        scrollView.addSubview(contentView)
+        contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor)
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+    }
+    
     private func setupBookingCollection() {
-        addSubview(bookingCollection)
-        bookingCollection.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 20))
+        scrollView.maximumZoomScale = 1.2
+        scrollView.minimumZoomScale = 1.0
+        contentView.addSubview(bookingCollection)
+        bookingCollection.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 20))
         collectionHeight = bookingCollection.heightAnchor.constraint(equalToConstant: 300)
         collectionHeight?.isActive = true
     }
     
     private func setupSeatInfoStack() {
-        addSubview(seatStack)
-        seatStack.anchor(top: bookingCollection.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 14, left: 20, bottom: 0, right: 20))
+        contentView.addSubview(seatStack)
+        seatStack.anchor(top: bookingCollection.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 14, left: 20, bottom: 0, right: 20))
+        seatStack.constraintHeight(constant: 30)
     }
     
     private func setupToolbar() {

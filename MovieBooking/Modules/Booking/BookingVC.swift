@@ -33,6 +33,7 @@ class BookingVC: BaseViewController {
         observeEvents()
         setupRx()
         baseView.toolBar.configureView(with: viewModel.showData)
+        baseView.scrollView.delegate = self
     }
     
     private func setupCollectionView() {
@@ -96,5 +97,11 @@ extension BookingVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
+    }
+}
+
+extension BookingVC: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return baseView
     }
 }

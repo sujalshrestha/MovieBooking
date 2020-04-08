@@ -46,12 +46,12 @@ struct SeatsManager {
         row.append(SeatsRowData(title: "F", price: 340))
         row.append(SeatsRowData(title: "G", price: 340))
         row.append(SeatsRowData(title: "H", price: 340))
-        row.append(SeatsRowData(title: "I", price: 250))
-        row.append(SeatsRowData(title: "J", price: 250))
-        row.append(SeatsRowData(title: "K", price: 250))
-        row.append(SeatsRowData(title: "L", price: 250))
-        row.append(SeatsRowData(title: "M", price: 250))
-        row.append(SeatsRowData(title: "N", price: 250))
+        row.append(SeatsRowData(title: "I", price: 340))
+        row.append(SeatsRowData(title: "J", price: 340))
+        row.append(SeatsRowData(title: "K", price: 340))
+        row.append(SeatsRowData(title: "L", price: 340))
+        row.append(SeatsRowData(title: "M", price: 340))
+        row.append(SeatsRowData(title: "N", price: 340))
     }
     
     func getData() -> [SeatsModel] {
