@@ -76,8 +76,7 @@ class BookingView: UIView {
     
     private func setupToolbar() {
         addSubview(toolBar)
-        toolBar.anchor(top: nil, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
-        toolBar.constraintHeight(constant: 170)
+        toolBar.anchor(top: seatStack.bottomAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 0))
     }
     
     override func layoutSubviews() {

@@ -10,12 +10,12 @@ import UIKit
 
 class BookingToolbar: UIView {
     
-    let movieName = UILabel(text: "", color: AppColor.primaryBlack, font: Poppins.medium, size: 14)
-    let auditorium = UILabel(text: "", color: AppColor.textGray, font: Poppins.regular, size: 14)
-    let seatsPicked = UILabel(text: "", color: AppColor.primaryBlack, font: Poppins.regular, size: 13, numberOfLines: 0)
-    let price = UILabel(text: "Rs. 0", color: AppColor.buttonBlue, font: Poppins.bold, size: 16)
+    let movieName = UILabel(text: "", color: AppColor.primaryBlack, font: Poppins.medium, size: 13)
+    let auditorium = UILabel(text: "", color: AppColor.textGray, font: Poppins.regular, size: 13)
+    let seatsPicked = UILabel(text: "", color: AppColor.primaryBlack, font: Poppins.regular, size: 11, numberOfLines: 0)
+    let price = UILabel(text: "Rs. 0", color: AppColor.buttonBlue, font: Poppins.bold, size: 15)
     
-    lazy var infoStack = VerticalStackView(arrangedSubViews: [movieName, auditorium, seatsPicked, price], spacing: 3)
+    lazy var infoStack = VerticalStackView(arrangedSubViews: [movieName, auditorium, seatsPicked, price], spacing: 2)
     
     let proceed = UIButton(title: "Proceed", titleColor: .white, backgroundColor: AppColor.appGreen, font: Poppins.medium, fontSize: 14, cornerRadius: 5)
     
@@ -40,7 +40,7 @@ class BookingToolbar: UIView {
     private func setupButtonView() {
         addSubview(proceed)
         proceed.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 20, bottom: 15, right: 20))
-        proceed.constraintHeight(constant: 40)
+        proceed.constraintHeight(constant: 36)
     }
     
     func configureView(with data: ShowTimeModel) {
