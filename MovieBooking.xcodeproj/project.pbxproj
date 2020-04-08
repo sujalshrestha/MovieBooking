@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		041A67F024386477000559E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A67EF24386477000559E8 /* AppDelegate.swift */; };
 		041A67F224386477000559E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A67F124386477000559E8 /* SceneDelegate.swift */; };
-		041A67F424386477000559E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041A67F324386477000559E8 /* ViewController.swift */; };
 		041A67F924386478000559E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041A67F824386478000559E8 /* Assets.xcassets */; };
 		041A67FC24386478000559E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041A67FA24386478000559E8 /* LaunchScreen.storyboard */; };
 		041A680A243864FD000559E8 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 041A6806243864FD000559E8 /* Poppins-Light.ttf */; };
@@ -66,7 +65,6 @@
 		041A67EC24386477000559E8 /* MovieBooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041A67EF24386477000559E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		041A67F124386477000559E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		041A67F324386477000559E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		041A67F824386478000559E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041A67FB24386478000559E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041A67FD24386478000559E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				041A680E2438650E000559E8 /* Utils */,
 				041A6804243864E6000559E8 /* Resources */,
 				041A6803243864D2000559E8 /* SupportingFiles */,
-				041A67F324386477000559E8 /* ViewController.swift */,
 				041A67FD24386478000559E8 /* Info.plist */,
 			);
 			path = MovieBooking;
@@ -517,7 +514,6 @@
 				041A6867243A3B04000559E8 /* BookingViewModel.swift in Sources */,
 				041A684C2438690B000559E8 /* MovieListModel.swift in Sources */,
 				041A6859243992BC000559E8 /* ShowTimeTableCell.swift in Sources */,
-				041A67F424386477000559E8 /* ViewController.swift in Sources */,
 				041A68392438650F000559E8 /* UIViewController+Ext.swift in Sources */,
 				041A685B243997A1000559E8 /* MovieTimeCell.swift in Sources */,
 				041A684E24386F2E000559E8 /* BaseCollectionViewController.swift in Sources */,
