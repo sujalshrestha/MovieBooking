@@ -52,6 +52,8 @@ class BookingView: UIView {
     }
     
     private func setupScrollView() {
+        scrollView.maximumZoomScale = 1.5
+        scrollView.minimumZoomScale = 1.0
         addSubview(scrollView)
         scrollView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         
@@ -61,8 +63,6 @@ class BookingView: UIView {
     }
     
     private func setupBookingCollection() {
-        scrollView.maximumZoomScale = 1.2
-        scrollView.minimumZoomScale = 1.0
         contentView.addSubview(bookingCollection)
         bookingCollection.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 20))
         collectionHeight = bookingCollection.heightAnchor.constraint(equalToConstant: 300)
@@ -71,8 +71,7 @@ class BookingView: UIView {
     
     private func setupSeatInfoStack() {
         contentView.addSubview(seatStack)
-        seatStack.anchor(top: bookingCollection.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 14, left: 20, bottom: 0, right: 20))
-        seatStack.constraintHeight(constant: 30)
+        seatStack.anchor(top: bookingCollection.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 14, left: 20, bottom: 30, right: 20))
     }
     
     private func setupToolbar() {

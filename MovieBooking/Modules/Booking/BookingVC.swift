@@ -43,6 +43,20 @@ class BookingVC: BaseViewController {
         baseView.bookingCollection.delegate = self
     }
     
+    private func setupBarButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(handleDone))
+    }
+    
+    @objc func handleDone() {
+        baseView.scrollView.zoomScale = 1.0
+        baseView.toolBar.isHidden = false
+        disableBarButton()
+    }
+    
+    private func disableBarButton() {
+        navigationItem.rightBarButtonItem = nil
+    }
+    
     private func observeCollectionViewEvents() {
         viewModel.seatsData.bind(to: baseView.bookingCollection.rx.items(cellIdentifier: BookingCell.cellId, cellType: BookingCell.self)) { row, model, cell in
             cell.configureCell(with: model)
@@ -102,6 +116,18 @@ extension BookingVC: UICollectionViewDelegateFlowLayout {
 
 extension BookingVC: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return baseView
+        return baseView.contentView
+    }
+    
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        setupBarButton()
+        baseView.toolBar.isHidden = true
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        if scale == 1.0 {
+            disableBarButton()
+            baseView.toolBar.isHidden = false
+        }
     }
 }
