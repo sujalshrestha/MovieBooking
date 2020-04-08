@@ -11,7 +11,7 @@ Features:
 - View booked tickets
 
 Know issues:
-- Layout constraint warning(UITemporaryLayoutWidth causing layout constraint warnings)
+- Layout constraint warning(UITemporaryLayoutWidth causing layout constraint warnings in collection view)
 
 Language: Swift 5.1
 
